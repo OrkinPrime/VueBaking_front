@@ -20,7 +20,7 @@
 						<p v-html="c.content"></p>
 					</div>
 					<div v-else>
-						<video :src="BASE_URL+c.videoUrl" style="width: 100%;" controls type="video/mp4"></video>
+						<video :src="BASE_URL+'/videos'+c.videoUrl" style="width: 100%;" controls type="video/mp4"></video>
 					</div>
 
 				</el-card>
@@ -39,7 +39,7 @@
 					<!-- 评论列表 -->
 					<el-row v-for="c in commentArr">
 						<el-col :span="2">
-							<el-avatar :src="BASE_URL+c.imgUrl"></el-avatar>
+							<el-avatar :src="BASE_URL+'/images'+c.imgUrl"></el-avatar>
 						</el-col>
 						<el-col :span="22">
 							<p style="color: orange;font-weight: bold;margin: 0;">{{c.nickname}}</p>
@@ -55,7 +55,7 @@
 				<el-card>
 					<div id="head_div"></div>
 					<div style="text-align: center;position: relative;top: -45px;">
-						<img :src="BASE_URL+c.userImageUrl"
+						<img :src="BASE_URL+'/images'+c.userImageUrl"
 							style="width: 90px;height: 90px;border: 5px solid white;border-radius: 90px;">
 						<p style="font-size: 20px;font-weight: bold;margin: 0;"></p>
 						<el-icon>
@@ -73,7 +73,7 @@
 					<el-row :gutter="20" v-for="oc in otherArr">
 						<!-- 封面 -->
 						<el-col :span="10">
-							<img :src="BASE_URL+oc.imgUrl" style="width: 100%;height: 70px;" />
+							<img :src="BASE_URL+'/images'+oc.imgUrl" style="width: 100%;height: 70px;" />
 						</el-col>
 						<!-- 标题 -->
 						<el-col :span="14">
@@ -96,7 +96,7 @@
 					<hr />
 					<el-row :gutter="20" v-for="hc in hotArr">
 						<el-col :span="10">
-							<img :src="BASE_URL+hc.imgUrl" style="width: 100%;height: 70px;" />
+							<img :src="BASE_URL+'/images'+hc.imgUrl" style="width: 100%;height: 70px;" />
 						</el-col>
 						<el-col :span="14">
 							<a :href="`/detail?id=${hc.id}`" class="title_p">
@@ -184,6 +184,7 @@
 		let id = new URLSearchParams(location.search).get("id")
 		hy.get(BASE_URL + `/v1/contents/${id}/detail`).then((r) => {
 			if (r.data.code == 2000) {
+				console.log(c)
 				c.value = r.data.data
 				getOther(c.value.userId, id)
 				getHot(id)

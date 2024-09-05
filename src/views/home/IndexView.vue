@@ -23,12 +23,12 @@
 				<el-col :span="6" v-for="v in recipeArr">
 					<el-card>
 						<router-link :to="`/detail?id=${v.id}`">
-							<img :src="BASE_URL+v.contentImgUrl" style="width: 100%;height: 145px;" />
+							<img :src="BASE_URL+'/images'+v.contentImgUrl" style="width: 100%;height: 145px;" />
 							<p class="title_p">{{v.title}}</p>
 						</router-link>
 						<el-row>
 							<el-col :span="4">
-								<el-avatar :src="BASE_URL+v.userImgUrl" :size="35"></el-avatar>
+								<el-avatar :src="BASE_URL+'/images'+v.userImgUrl" :size="35"></el-avatar>
 							</el-col>
 							<el-col :span="20">
 								<p style="margin-top: 10px;">
@@ -70,12 +70,12 @@
 				<el-col :span="6" v-for="v in videoArr">
 					<el-card>
 						<router-link :to="`/detail?id=${v.id}`">
-							<img :src="BASE_URL+v.contentImgUrl" style="width: 100%;height: 145px;" />
+							<img :src="BASE_URL+'/images'+v.contentImgUrl" style="width: 100%;height: 145px;" />
 							<p class="title_p">{{v.title}}</p>
 						</router-link>
 						<el-row>
 							<el-col :span="4">
-								<el-avatar :src="BASE_URL+v.userImgUrl" :size="35"></el-avatar>
+								<el-avatar :src="BASE_URL+'/images'+v.userImgUrl" :size="35"></el-avatar>
 							</el-col>
 							<el-col :span="20">
 								<p style="margin-top: 10px;">
@@ -117,12 +117,12 @@
 				<el-col :span="6" v-for="v in infoArr">
 					<el-card>
 						<router-link :to="`/detail?id=${v.id}`">
-							<img :src="BASE_URL+v.contentImgUrl" style="width: 100%;height: 145px;" />
+							<img :src="BASE_URL+'/images'+v.contentImgUrl" style="width: 100%;height: 145px;" />
 							<p class="title_p">{{v.title}}</p>
 						</router-link>
 						<el-row>
 							<el-col :span="4">
-								<el-avatar :src="BASE_URL+v.userImgUrl" :size="35"></el-avatar>
+								<el-avatar :src="BASE_URL+'/images'+v.userImgUrl" :size="35"></el-avatar>
 							</el-col>
 							<el-col :span="20">
 								<p style="margin-top: 10px;">

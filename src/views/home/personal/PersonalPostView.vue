@@ -181,6 +181,10 @@
 			ElMessage.error("请上传封面！")
 			return
 		}
+		if (c.value.categoryId<=1||c.value.categoryId>=10) {
+			ElMessage.error("请选择二级栏目！")
+			return
+		}
 		if (c.value.type != 2) {
 			c.value.content = editor.txt.html() //获取富文本编辑器的内容
 			c.value.brief = editor.txt.text().slice(0, 30) //截取
