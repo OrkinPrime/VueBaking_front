@@ -33,6 +33,8 @@
 	//使用axios发送请求
 	const login = () => {
 		hy.post(BASE_URL + '/v1/users/login', qs.stringify(user.value)).then((respon) => {
+			//测试输出
+			console.log(respon)
 			if (respon.data.code == 2000) {
 				ElMessage.success("登录成功")
 				// 两层封装，最外层为响应对象

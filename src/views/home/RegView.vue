@@ -54,8 +54,9 @@
 	const reg = () => {
 		//测试输出
 		console.log(user)
-
 		hy.post(BASE_URL + '/v1/users/reg', qs.stringify(user.value)).then((respon) => {
+			//测试输出
+			console.log(respon)
 			if (respon.data.code == 2000) {
 				ElMessage.success("注册成功")
 				// 两层封装，最外层为响应对象

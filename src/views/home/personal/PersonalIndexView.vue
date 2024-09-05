@@ -65,7 +65,7 @@
 	onMounted(() => {
 		if (user.value.imgUrl != null) {
 			fileList.value[0] = {
-				"url": `http://localhost:8080${user.value.imgUrl}`
+				"url": `http://localhost:8080/images${user.value.imgUrl}`
 			} //后端资源访问地址
 		}
 	})
@@ -74,9 +74,11 @@
 	const handleRemove = (uploadFile) => {
 
 		let url = user.value.imgUrl ? user.value.imgUrl : uploadFile.response.data
-		
+
 		hy.post(BASE_URL + '/v1/uploads/file/remove?url=' + url, qs.stringify(user.value)).then((
 			respon) => {
+			//测试输出
+			console.log(respon)
 			if (respon.data.code == 2000) {
 				ElMessage.success("删除成功")
 				user.value.imgUrl = null;
@@ -90,11 +92,6 @@
 			}
 		})
 	}
-
-	//上传成功时将经过后端处理的上传的图片信息保存在前端
-	const handleSuccess = (response, uploadFile, uploadFiles) => {
-		user.value.imgUrl = response.data
-	}
 	//图片预览模态框的显示
 	const handlePictureCardPreview = (uploadFile) => {
 		// console.log("user.value.imgUrl:" + user.value.imgUrl)
@@ -102,11 +99,18 @@
 		dialogShow.value = true
 		dialogImgUrl.value = uploadFile.url
 	}
+	
+	//上传成功时将经过后端处理的上传的图片信息保存在前端
+	const handleSuccess = (response, uploadFile, uploadFiles) => {
+		//测试输出
+		console.log(response)
+		user.value.imgUrl = response.data
+	}
 	//提交修改用户信息
 	const uodateUserInfo = () => {
-		//let data =qs.stringify(user.value);
-		//源数据为空有无影响？
 		hy.post(BASE_URL + '/v1/users/update', qs.stringify(user.value)).then((respon) => {
+			//测试输出
+			console.log(respon)
 			if (respon.data.code == 2000) {
 				ElMessage.success("修改成功")
 				localStorage.setItem("user", JSON.stringify(user.value))

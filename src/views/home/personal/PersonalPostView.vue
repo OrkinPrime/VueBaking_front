@@ -100,7 +100,7 @@
 					c.value = r.data.data
 					getCategoryArr()
 					fileList.value[0] = {
-						url: BASE_URL + c.value.imgUrl
+						url: BASE_URL+'/images' + c.value.imgUrl
 					}
 					editor.txt.html(c.value.content) //对应添加富文本编辑器内容
 					status.value = true;
@@ -202,7 +202,7 @@
 		// console.log("用户" + user.id)
 		c.value.createBy = user.id;
 		let data = qs.stringify(c.value)
-		// console.log("数据" + data)
+		 //console.log("数据" + data)
 		hy.post(BASE_URL + '/v1/contents/add-new', data).then((respon) => {
 			// console.log(respon)
 			if (respon.data.code == 2000) {

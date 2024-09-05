@@ -44,7 +44,7 @@
 						</el-icon>
 					</template>
 					<div style="text-align: center;">
-						<el-avatar :src="BASE_URL+user.imgUrl"></el-avatar><br />
+						<el-avatar :src="BASE_URL+'/images'+user.imgUrl"></el-avatar><br />
 						<el-button type="info" size="small" @click="router.push('/personal')">个人中心</el-button>
 						<el-button type="warning" size="small" @click="logout">退出登录</el-button>
 						<!-- <el-button v-if="user.isAdmin==1" size="small" type="danger" >后台管理页面</el-button> -->

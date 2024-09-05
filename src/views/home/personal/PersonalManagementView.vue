@@ -14,7 +14,7 @@
 			<el-table-column prop="brief" label="摘要" width="200px"></el-table-column>
 			<el-table-column label="封面" width="80px">
 				<template #default="scope">
-					<img :src="BASE_URL+scope.row.imgUrl" style="width: 75px;" />
+					<img :src="BASE_URL+'/images'+scope.row.imgUrl" style="width: 75px;" />
 				</template>
 			</el-table-column>
 			<el-table-column prop="categoryName" label="分类"></el-table-column>
@@ -83,7 +83,7 @@
 
 	const remove = (arrIndex,id)=>{
 		hy.post(BASE_URL + `/v1/contents/remove/${id}`).then((respon) => {
-			// console.log(respon)
+			 console.log(respon)
 			if (respon.data.code == 2000) {
 				contentArr.value.splice(arrIndex,1)
 				ElMessage.success("删除成功！")
